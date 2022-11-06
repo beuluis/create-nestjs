@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  postgres:
+    container_name: {{name}}PostgresDev
+
+    environment:
+      POSTGRES_DB: {{name}}Dev
+      POSTGRES_PASSWORD: CHANGE_ME
+      POSTGRES_USER: {{name}}Dev
+
+  {{name}}:
+    command: npm run start:dev
+
+    container_name: {{name}}Dev
+
+    environment:
+      FORCE_COLOR: 1
+      POSTGRES_DB: {{name}}Dev
+      POSTGRES_PASSWORD: CHANGE_ME
+      POSTGRES_USER: {{name}}Dev
+
+    ports:
+      - 9229:9229
+      - 3300:80
+
+    volumes:
+      - ./src:/app/src
+      - ./tsconfig.json:/app/tsconfig.json

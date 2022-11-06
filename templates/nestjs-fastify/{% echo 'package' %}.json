@@ -1,0 +1,84 @@
+{
+  "name": "{{name}}",
+  "version": "0.0.1",
+  "description": "{{description}}",
+  "engines": {
+    "node": "16.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beuluis/{{name}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/beuluis/{{name}}/issues"
+  },
+  "homepage": "https://github.com/beuluis/{{name}}#readme",
+  "author": "Luis Beu <me@luisbeu.de> (https://luisbeu.de/)",
+  "license": "{{license}}",
+  "scripts": {
+    "build": "rm -rf dist && nest build",
+    "format": "prettier --check .",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "prepare": "husky install",
+    "swagger:generate": "ts-node ./docs/swagger.ts"
+  },
+  "dependencies": {
+    "@fastify/static": "6.5.0",
+    "@nestjs/common": "9.1.6",
+    "@nestjs/config": "2.2.0",
+    "@nestjs/core": "9.1.6",
+    "@nestjs/platform-fastify": "9.1.6",
+    "@nestjs/swagger": "6.1.3",
+    "@nestjs/typeorm": "9.0.1",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.13.2",
+    "fastify": "4.9.2",
+    "fastify-swagger": "5.2.0",
+    "pg": "8.8.0",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.5.7",
+    "typeorm": "0.3.10"
+  },
+  "devDependencies": {
+    "@beuluis/eslint-config": "1.2.3",
+    "@beuluis/hook-cli": "1.1.4",
+    "@beuluis/prettier-config": "2.0.2",
+    "@nestjs/cli": "9.1.5",
+    "@nestjs/schematics": "9.0.3",
+    "@nestjs/testing": "9.1.6",
+    "@types/jest": "29.2.2",
+    "@types/node": "18.11.9",
+    "@types/supertest": "2.0.12",
+    "eslint": "8.27.0",
+    "husky": "8.0.0",
+    "jest": "29.2.2",
+    "jest-mock-extended": "3.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "source-map-support": "0.5.21",
+    "sqlite3": "5.1.2",
+    "supertest": "6.3.1",
+    "ts-jest": "29.0.3",
+    "ts-loader": "9.4.1",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "4.1.0",
+    "typescript": "4.8.4"
+  },
+  "prettier": "@beuluis/prettier-config",
+  "lint-staged": {
+    "*.md": [
+      "prettier --write"
+    ],
+    "*.{js,ts,json,yml,yaml}": [
+      "prettier --write",
+      "eslint"
+    ]
+  }
+}

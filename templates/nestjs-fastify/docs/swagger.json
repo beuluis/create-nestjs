@@ -1,0 +1,125 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/cat/{id}": {
+      "get": {
+        "operationId": "CatController_getCatById",
+        "summary": "Gets a cat by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cat"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "404": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": ["Animals"]
+      }
+    },
+    "/api/v1/cat/create": {
+      "post": {
+        "operationId": "CatController_postNewCat",
+        "summary": "Creates a new cat",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CatRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "A new cat was successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cat"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": ""
+          },
+          "500": {
+            "description": ""
+          }
+        },
+        "tags": ["Animals"]
+      }
+    }
+  },
+  "info": {
+    "title": "{{name}}",
+    "description": "",
+    "version": "0.0.1",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Cat": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2022-09-24T16:53:17.721Z"
+          },
+          "id": {
+            "type": "string",
+            "example": "5568e476-3431-4f29-bfd6-fca460d0c971"
+          },
+          "name": {
+            "type": "string",
+            "example": "Finn"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2022-09-24T16:53:17.721Z"
+          }
+        },
+        "required": ["createdAt", "id", "name", "updatedAt"]
+      },
+      "CatRequestDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Neo"
+          }
+        },
+        "required": ["name"]
+      }
+    }
+  }
+}

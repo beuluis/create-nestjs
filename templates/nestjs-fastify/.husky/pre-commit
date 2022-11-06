@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged --verbose
+make generate-swagger
+git add ./docs/swagger.json
